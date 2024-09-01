@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'selection.dart';
+import 'selection_2.dart';
 
 class Selection3 extends StatelessWidget {
   const Selection3({super.key});
@@ -29,6 +30,19 @@ class _Selection_13State extends State<Selection_13> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightGreen[300],
+        title: Center(child: Text('USER PROBLEM')),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Selection2()),
+            );
+          },
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Column(
         children: [

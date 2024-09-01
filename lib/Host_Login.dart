@@ -1,41 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/loginpage.dart';
-import 'HomePage.dart';
-import 'Host_Login.dart';
+import 'HomePage2.dart';
+import 'Host_Verification.dart';
+import 'Home_ResetPass.dart';
+import 'Home_Signup.dart';
 
-class UserSignup extends StatelessWidget {
-  const UserSignup({super.key});
+class HostLogin extends StatelessWidget {
+  const HostLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: User_Signup(),
+      home: Host_Login(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class User_Signup extends StatefulWidget {
-  const User_Signup({super.key});
+class Host_Login extends StatefulWidget {
+  const Host_Login({super.key});
 
   @override
-  State<User_Signup> createState() => _Host_SignupState();
+  State<Host_Login> createState() => _Host_LoginState();
 }
 
-class _Host_SignupState extends State<User_Signup> {
-  bool _agreeToTerms = false;
+class _Host_LoginState extends State<Host_Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightGreen[300],
-        title: Center(child: Text('USER - SIGNUP')),
+        title: Center(child: Text('HOST - LOGIN')),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => StudentsLogin()),
+              MaterialPageRoute(builder: (context) => MyApp2()),
             );
           },
         ),
@@ -66,38 +66,29 @@ class _Host_SignupState extends State<User_Signup> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                CustomField(labelText: 'Enter Your name'),
+                CustomField(labelText: 'Enter the Shop name'),
                 SizedBox(height: 8.0),
-                CustomField(labelText: 'Enter Your Phone Number'),
-                SizedBox(height: 8.0),
-                CustomField(
-                    labelText: 'Enter Your Password', obscureText: true),
-                SizedBox(height: 8.0),
-                CustomField(labelText: 'Confirm Password', obscureText: true),
-                SizedBox(height: 8.0),
+                CustomField(labelText: 'Password', obscureText: true),
                 SizedBox(
                   height: 50.0,
                 ),
-                Row(
-                  children: <Widget>[
-                    Checkbox(
-                      value:
-                          _agreeToTerms, // This should be a boolean variable in your state
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _agreeToTerms = value!;
-                        });
-                      },
-                    ),
-                    Text(
-                      'I Agree to terms and conditions',
-                      style: TextStyle(color: Colors.blue[900]),
-                    ),
-                  ],
+                TextButton(
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Colors.blue[900]),
+                  ),
+                  onPressed: () {
+                    // Handle forgot password action
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HostResetPassword()),
+                    );
+                  },
                 ),
                 ElevatedButton(
                   child: Text(
-                    'SIGN UP',
+                    'LOGIN',
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -106,10 +97,22 @@ class _Host_SignupState extends State<User_Signup> {
                     // Handle login action
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HostLogin()),
+                      MaterialPageRoute(
+                          builder: (context) => HostVerification()),
                     );
                   },
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                ),
+                TextButton(
+                  child: Text('New User? SignUp Here',
+                      style: TextStyle(color: Colors.blue[900])),
+                  onPressed: () {
+                    // Handle sign up action
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Host_Signup()),
+                    );
+                  },
                 ),
               ],
             ),

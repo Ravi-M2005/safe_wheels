@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'HomePage.dart';
 import 'Selection_4.dart';
 import 'selection_3.dart';
 import 'selection.dart';
@@ -31,6 +32,19 @@ class _Selection_12State extends State<Selection_12> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightGreen[300],
+        title: Center(child: Text('SELECT TYPE OF VEHICLE')),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyApp1()),
+            );
+          },
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Column(
         children: [

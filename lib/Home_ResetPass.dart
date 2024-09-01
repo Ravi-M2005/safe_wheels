@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/loginpage.dart';
-import 'HomePage.dart';
 import 'Host_Login.dart';
 
-class UserSignup extends StatelessWidget {
-  const UserSignup({super.key});
+class HostResetPassword extends StatelessWidget {
+  const HostResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: User_Signup(),
+      home: Host_Reset(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class User_Signup extends StatefulWidget {
-  const User_Signup({super.key});
+class Host_Reset extends StatefulWidget {
+  const Host_Reset({super.key});
 
   @override
-  State<User_Signup> createState() => _Host_SignupState();
+  State<Host_Reset> createState() => _Host_ResetState();
 }
 
-class _Host_SignupState extends State<User_Signup> {
-  bool _agreeToTerms = false;
+class _Host_ResetState extends State<Host_Reset> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightGreen[300],
-        title: Center(child: Text('USER - SIGNUP')),
+        title: Center(child: Text('HOST - RESET PASSWORD')),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => StudentsLogin()),
+              MaterialPageRoute(builder: (context) => HostLogin()),
             );
           },
         ),
@@ -66,38 +63,23 @@ class _Host_SignupState extends State<User_Signup> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                CustomField(labelText: 'Enter Your name'),
-                SizedBox(height: 8.0),
-                CustomField(labelText: 'Enter Your Phone Number'),
+                CustomField(labelText: 'Enter the Shop name'),
                 SizedBox(height: 8.0),
                 CustomField(
                     labelText: 'Enter Your Password', obscureText: true),
                 SizedBox(height: 8.0),
                 CustomField(labelText: 'Confirm Password', obscureText: true),
                 SizedBox(height: 8.0),
+                CustomField(labelText: 'Enter the Phone Number'),
+                SizedBox(height: 8.0),
+                CustomField(labelText: 'Enter the 6 Digit OTP'),
+                SizedBox(height: 8.0),
                 SizedBox(
                   height: 50.0,
                 ),
-                Row(
-                  children: <Widget>[
-                    Checkbox(
-                      value:
-                          _agreeToTerms, // This should be a boolean variable in your state
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _agreeToTerms = value!;
-                        });
-                      },
-                    ),
-                    Text(
-                      'I Agree to terms and conditions',
-                      style: TextStyle(color: Colors.blue[900]),
-                    ),
-                  ],
-                ),
                 ElevatedButton(
                   child: Text(
-                    'SIGN UP',
+                    'RESET PASSWORD',
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -115,26 +97,6 @@ class _Host_SignupState extends State<User_Signup> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CustomField extends StatelessWidget {
-  final String labelText;
-  final bool obscureText;
-
-  CustomField({required this.labelText, this.obscureText = false});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        labelText: labelText,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
       ),
     );
   }

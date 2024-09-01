@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'HomePage2.dart';
 import 'HomePage.dart';
 import 'loginpage.dart';
 
@@ -60,7 +61,7 @@ class _Selection_11State extends State<Selection_11> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyApp1()),
+                        MaterialPageRoute(builder: (context) => MyApp2()),
                       );
                     })),
           ),
@@ -84,14 +85,17 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
+    return GestureDetector(
+      onTap: onPressed,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
         color: Colors.green,
-        elevation: 5,
+        elevation: 2.5,
+
+        // Adjust this height to reduce the card size
+
         child: Column(
           children: [
             Expanded(
@@ -100,12 +104,11 @@ class CustomCard extends StatelessWidget {
                 child: Image.asset(
                   imageAsset,
                   fit: BoxFit.contain,
-                  width: double.tryParse("350.0"),
-                  height: 100, // Adjust this based on your needs
+                  width: double.tryParse("200.0"),
+                  height: 80, // Adjust this based on your needs
                 ),
               ),
             ),
-            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

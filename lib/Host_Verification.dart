@@ -1,41 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/loginpage.dart';
-import 'HomePage.dart';
+import 'package:safe_wheels/Host_Success.dart';
 import 'Host_Login.dart';
 
-class UserSignup extends StatelessWidget {
-  const UserSignup({super.key});
+class HostVerification extends StatelessWidget {
+  const HostVerification({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: User_Signup(),
+      home: Host_Verification(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class User_Signup extends StatefulWidget {
-  const User_Signup({super.key});
+class Host_Verification extends StatefulWidget {
+  const Host_Verification({super.key});
 
   @override
-  State<User_Signup> createState() => _Host_SignupState();
+  State<Host_Verification> createState() => _Host_VerificationState();
 }
 
-class _Host_SignupState extends State<User_Signup> {
+class _Host_VerificationState extends State<Host_Verification> {
   bool _agreeToTerms = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightGreen[300],
-        title: Center(child: Text('USER - SIGNUP')),
+        title: Center(child: Text('HOST - VERIFICATION')),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => StudentsLogin()),
+              MaterialPageRoute(builder: (context) => HostLogin()),
             );
           },
         ),
@@ -66,14 +66,17 @@ class _Host_SignupState extends State<User_Signup> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                CustomField(labelText: 'Enter Your name'),
+                CustomField(labelText: 'Enter the Shop name'),
                 SizedBox(height: 8.0),
-                CustomField(labelText: 'Enter Your Phone Number'),
+                CustomField(labelText: 'Select Document Type'),
                 SizedBox(height: 8.0),
                 CustomField(
-                    labelText: 'Enter Your Password', obscureText: true),
+                  labelText: 'Upload the Document ',
+                ),
                 SizedBox(height: 8.0),
-                CustomField(labelText: 'Confirm Password', obscureText: true),
+                CustomField(
+                  labelText: 'Enter 6 Digit OTP',
+                ),
                 SizedBox(height: 8.0),
                 SizedBox(
                   height: 50.0,
@@ -90,14 +93,14 @@ class _Host_SignupState extends State<User_Signup> {
                       },
                     ),
                     Text(
-                      'I Agree to terms and conditions',
+                      'I Agree that the document uploaded by me is valid',
                       style: TextStyle(color: Colors.blue[900]),
                     ),
                   ],
                 ),
                 ElevatedButton(
                   child: Text(
-                    'SIGN UP',
+                    'VERIFY',
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -106,7 +109,8 @@ class _Host_SignupState extends State<User_Signup> {
                     // Handle login action
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HostLogin()),
+                      MaterialPageRoute(
+                          builder: (context) => HostSuccessPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
@@ -115,26 +119,6 @@ class _Host_SignupState extends State<User_Signup> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CustomField extends StatelessWidget {
-  final String labelText;
-  final bool obscureText;
-
-  CustomField({required this.labelText, this.obscureText = false});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        labelText: labelText,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
       ),
     );
   }
