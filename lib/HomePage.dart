@@ -1,8 +1,10 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:safe_wheels/loginpage.dart';
+import 'loginpage.dart';
 
 import 'selection_2.dart';
 
