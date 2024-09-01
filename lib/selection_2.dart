@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/Selection_4.dart';
-import 'package:safe_wheels/selection_3.dart';
+import 'Selection_4.dart';
+import 'selection_3.dart';
 import 'selection.dart';
 
 class Selection2 extends StatelessWidget {
