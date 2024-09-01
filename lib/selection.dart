@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/HomePage.dart';
-import 'package:safe_wheels/loginpage.dart';
+import 'HomePage.dart';
+import 'loginpage.dart';
 
 Color _Green = Color(0xFF08572A);
 
