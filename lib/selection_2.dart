@@ -1,0 +1,66 @@
+import 'package:flutter/material.dart';
+import 'package:safe_wheels/Selection_4.dart';
+import 'package:safe_wheels/selection_3.dart';
+import 'selection.dart';
+
+class Selection2 extends StatelessWidget {
+  const Selection2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 128, 203, 145)),
+        useMaterial3: true,
+      ),
+      home: Selection_12(),
+    );
+  }
+}
+
+class Selection_12 extends StatefulWidget {
+  const Selection_12({super.key});
+
+  @override
+  State<Selection_12> createState() => _Selection_12State();
+}
+
+class _Selection_12State extends State<Selection_12> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+                child: CustomCard(
+              imageAsset: "assests/images/EV.png",
+              title: "E-Vehicle",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Selection4()),
+                );
+              },
+            )),
+          ),
+          Expanded(
+            child: Center(
+                child: CustomCard(
+                    imageAsset: "assests/images/Bike.png",
+                    title: "Petrol or Diesel",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Selection3()),
+                      );
+                    })),
+          ),
+        ],
+      ),
+    );
+  }
+}
