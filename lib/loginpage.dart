@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/register.dart';
-import 'package:safe_wheels/selection_2.dart';
+import 'register.dart';
+import 'selection_2.dart';
 
 Color _blue = const Color.fromARGB(255, 8, 87, 42);
 
