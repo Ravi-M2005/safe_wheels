@@ -1,6 +1,8 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/loginpage.dart';
-import 'package:safe_wheels/selection.dart';
+import 'loginpage.dart';
+import 'selection.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

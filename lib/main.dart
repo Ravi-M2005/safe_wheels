@@ -1,6 +1,8 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
-import 'package:safe_wheels/Intro.dart';
-import 'package:safe_wheels/selection.dart';
+import 'Intro.dart';
+import 'selection.dart';
 
 import 'HomePage.dart';
 
